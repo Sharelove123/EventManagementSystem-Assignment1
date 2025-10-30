@@ -26,15 +26,19 @@ class Event(models.Model):
     is_public = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    
     def __str__(self):
         return self.title
 
 class RSVP(models.Model):
+    STATUS_GOING = 'Going'
+    STATUS_MAYBE = 'Maybe'
+    STATUS_NOT_GOING = 'Not Going'
+
     STATUS_CHOICES = [
-    ('Going', 'Going'),
-    ('Maybe', 'Maybe'),
-    ('Not Going', 'Not Going'),
+    (STATUS_GOING, 'Going'),
+    (STATUS_MAYBE, 'Maybe'),
+    (STATUS_NOT_GOING, 'Not Going'),
     ]
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='rsvps')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

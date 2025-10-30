@@ -64,9 +64,8 @@ class RSVPViewSet(viewsets.GenericViewSet):
         if event_pk is None:
             return Response({'detail': 'event_pk is required in URL.'}, status=status.HTTP_400_BAD_REQUEST)
         event = get_object_or_404(Event, pk=event_pk)
-        if not event.is_user_allowed(request.user):
-            return Response({'detail': 'Not allowed to RSVP for this event.'}, status=status.HTTP_403_FORBIDDEN)
-
+        #if not event.is_user_allowed(request.user):
+          #  return Response({'detail': 'You are not allowed to RSVP to this event.'}, status=status.HTTP_403_FORBIDDEN)
         # ensure single RSVP per user/event
         rsvp, created = RSVP.objects.get_or_create(event=event, user=request.user,
                                                    defaults={'status': request.data.get('status', RSVP.STATUS_GOING)})
@@ -113,6 +112,6 @@ class ReviewViewSet(viewsets.ModelViewSet):
         event_pk = self.kwargs.get('event_pk')
         event = get_object_or_404(Event, pk=event_pk)
         user = self.request.user
-        if not event.is_user_allowed(user):
-            raise permissions.PermissionDenied('You are not allowed to review this event.')
+        #if not event.is_user_allowed(user):
+            #raise permissions.PermissionDenied('You are not allowed to review this event.')
         serializer.save(event=event, user=user)
