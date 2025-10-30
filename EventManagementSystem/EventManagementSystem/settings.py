@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2yb^#z@7e$ylgg-go=e$%4)av%_y-fm_s6gzmm+36d2375f@wz
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'useraccount.User'
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=4),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
