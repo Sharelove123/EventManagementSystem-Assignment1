@@ -1,4 +1,4 @@
-##Note :- code was working fine but suddenly got the error i didn't have the time to resolve it but thought atleast i should submit the assessment 🙂🙂.
+## Note :- code was working fine but suddenly got the error i didn't have the time to resolve it but thought atleast i should submit the assessment 🙂🙂.
  
  # EventManagementSystem-Assignment1
 
@@ -86,4 +86,5 @@
 **Example URLs:**
 * `http://127.0.0.1:8000/api/core/events/1/reviews/`
 * `http://127.0.0.1:8000/api/core/events/1/reviews/1/`
+
 
