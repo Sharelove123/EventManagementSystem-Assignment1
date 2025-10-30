@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.contrib import settings
 
 User = get_user_model()
 
@@ -17,7 +18,7 @@ class UserProfile(models.Model):
     
 
 class Event(models.Model):
-    organizer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='organized_events')
+    organizer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='organized_events')
     title = models.CharField(max_length=200)
     description = models.TextField()
     location = models.CharField(max_length=200)
